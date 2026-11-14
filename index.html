@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://wigaly.fr/">
 <meta name="theme-color" content="#1634D0">
 <meta name="color-scheme" content="light dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qX1s1zWz9LETlTTkua7DiBuxr2IBR6Y5BhU6NMmOVVY=' 'sha256-N3KVZyponIjk1rVguNebWBUaBhN8F2YpqmPhq8vfkKY='; style-src 'sha256-6fe7krtAyXQupzDTDqhbJw/bdBOZjsmAE/sHssBiT24='; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qX1s1zWz9LETlTTkua7DiBuxr2IBR6Y5BhU6NMmOVVY=' 'sha256-qA8X7NPqyW2MB6L9qgbZeKATh6vZ9EyZFlxw4vdMo5k='; style-src 'sha256-6fe7krtAyXQupzDTDqhbJw/bdBOZjsmAE/sHssBiT24='; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'">
 <meta property="og:title" content="Wigaly | Dev, IA et Power Platform">
 <meta property="og:description" content="Vos processus métier, automatisés avec l’IA. Sans rupture avec votre SI.">
 <meta property="og:url" content="https://wigaly.fr/">
@@ -1356,7 +1356,9 @@ all('[data-prefill]').forEach(function(a){a.addEventListener('click',function(){
 })();
 (function(){
 var l=D.querySelector('.loader');if(!l)return;
-l.addEventListener('animationend',function(e){if(e.animationName==='curtain'&&l.parentNode)l.parentNode.removeChild(l);});
+function rm(){if(l.parentNode)l.parentNode.removeChild(l);}
+l.addEventListener('animationend',function(e){if(e.animationName==='curtain')rm();});
+W.setTimeout(rm,4000);
 })();
 (function(){
 var nav=$('nav');if(!nav)return;
