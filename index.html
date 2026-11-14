@@ -116,6 +116,7 @@ h2{font-size:clamp(28px,3.6vw,48px);line-height:1.08;max-width:14ch}
 .stat{padding:28px 26px;border:1px solid rgba(255,255,255,.14);border-radius:16px}
 .stat b{display:block;font-family:'Unbounded',sans-serif;font-size:clamp(34px,3.4vw,52px);font-weight:700;color:var(--signal);line-height:1}
 .stat span{display:block;margin-top:10px;font-size:14px;color:rgba(244,242,236,.7)}
+.stat b.sm{font-size:clamp(26px,2.6vw,40px)}
 @media (max-width:900px){.case .grid{grid-template-columns:1fr}}
 
 /* PRODUITS: horizontal snap */
@@ -212,7 +213,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   <div class="wrap">
     <div>
       <h1 id="h1"></h1>
-      <p>Wigaly conçoit des applications, des agents IA et des portails pour les grandes organisations qui tournent sur Microsoft. Une IA placée là où elle est utile, jamais là où elle décide. Données hébergées en France, modèles open source, six ans de Power Platform.</p>
+      <p>Wigaly conçoit des applications, des agents IA et des portails pour les grandes organisations qui tournent sur Microsoft. Une IA placée là où elle est utile, jamais là où elle décide. Données hébergées en France, modèles open source, huit ans de Power Platform.</p>
       <div class="cta">
         <a class="btn mag btn-signal" href="#contact">Prendre rendez-vous</a>
         <a class="btn mag btn-ghost" href="#references">Voir nos références</a>
@@ -303,7 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     <div class="rows">
       <a class="row" href="#contact">
         <h3>Power Platform</h3>
-        <p>La colonne vertébrale gouvernée : identité Entra, Dataverse, flux, traçabilité. Six ans de pratique chez des grands comptes. Régie ou forfait.</p>
+        <p>La colonne vertébrale gouvernée : identité Entra, Dataverse, flux, traçabilité. Huit ans de pratique chez des grands comptes. Régie ou forfait.</p>
         <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
       <a class="row" href="#contact">
@@ -362,8 +363,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <p style="margin-top:28px"><a class="btn mag btn-signal" href="#contact">Demander les références</a></p>
     </div>
     <div class="stats">
-      <div class="stat"><b data-count="6">0</b><span>ans de Power Platform chez des grands comptes</span></div>
-      <div class="stat"><b data-count="800">0</b><span>membres sur une application privée livrée</span></div>
+      <div class="stat"><b data-count="8">0</b><span>ans de Power Platform chez des grands comptes</span></div>
+      <div class="stat"><b class="sm" data-count="180000">0</b><span>membres sur une application que nous avons livrée</span></div>
       <div class="stat"><b data-count="3">0</b><span>produits maison en production</span></div>
       <div class="stat"><b data-count="100">0</b><span>% des données hébergées en France</span></div>
     </div>
@@ -379,7 +380,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     <div class="strip">
       <article class="card"><div><small>SaaS</small><h3>BambuStock</h3><p>Gestion de stock et calcul de coût pour l'impression 3D.</p></div><span class="big">01</span></article>
       <article class="card"><div><small>Web app</small><h3>Home Guide</h3><p>Le guide de maison numérique pour les voyageurs.</p></div><span class="big">02</span></article>
-      <article class="card"><div><small>Plateforme</small><h3>Tombola</h3><p>Organisez et tirez une tombola en ligne, sans paperasse.</p></div><span class="big">03</span></article>
+      <article class="card"><div><small>Web app</small><h3>Jukebox</h3><p>Vos invités choisissent et votent les titres de la soirée, la playlist s'enchaîne toute seule.</p></div><span class="big">03</span></article>
       <article class="card"><div><small>Matériel + logiciel</small><h3>Boîtier connecté</h3><p>Remplace le classeur papier dans les locations de courte durée.</p></div><span class="big">04</span></article>
     </div>
   </div>
@@ -451,8 +452,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return; io.unobserve(e.target);
     var el=e.target,end=+el.dataset.count,t0=null;
-    if(reduce){el.textContent=end;return;}
-    function tick(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1400);p=1-Math.pow(1-p,3);el.textContent=Math.round(end*p);if(p<1)requestAnimationFrame(tick);}
+    if(reduce){el.textContent=end.toLocaleString('fr-FR');return;}
+    function tick(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1400);p=1-Math.pow(1-p,3);el.textContent=Math.round(end*p).toLocaleString('fr-FR');if(p<1)requestAnimationFrame(tick);}
     requestAnimationFrame(tick);
   });},{threshold:.6});
   stats.forEach(function(s){io.observe(s);});
