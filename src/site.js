@@ -537,7 +537,10 @@ var M=(function(){
 /* ---------- Rideau d'ouverture : il quitte le document une fois levé ---------- */
 (function(){
   var l=D.querySelector('.loader');if(!l)return;
-  l.addEventListener('animationend',function(e){if(e.animationName==='curtain'&&l.parentNode)l.parentNode.removeChild(l);});
+  function rm(){if(l.parentNode)l.parentNode.removeChild(l);}
+  l.addEventListener('animationend',function(e){if(e.animationName==='curtain')rm();});
+  /* filet de sécurité : sur une connexion lente, l'animation peut finir avant que ce script ne s'exécute */
+  W.setTimeout(rm,4000);
 })();
 
 /* ---------- Navigation : se range en descendant, revient en remontant ---------- */

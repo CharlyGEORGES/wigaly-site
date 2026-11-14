@@ -13,6 +13,7 @@ La branche `main` contient le site tel que GitHub Pages le sert sur https://wiga
 | `assets/` | Image de partage et icônes |
 | `build.py` | Assemble le site dans `out/` |
 | `assets.js` | Régénère l'image de partage et les icônes |
+| `deploy.sh` | Construit puis met en ligne sur `main` |
 | `tests/` | Vérifications dans un vrai navigateur |
 
 ## Construire
@@ -36,7 +37,9 @@ Renseigner `ENDPOINT` en tête de `build.py` avec l'adresse qui reçoit les dema
 
 ## Mettre en ligne
 
-Copier le contenu de `out/` à la racine de la branche `main`, valider, pousser. GitHub Pages publie en une minute environ.
+    ./deploy.sh "Message de commit"
+
+Le script reconstruit le site, puis pousse sur `main` un commit dont le contenu est exactement celui de `out/`. Avec `--essai` en second argument, il montre ce qui partirait sans rien pousser. GitHub Pages publie en une minute environ.
 
 ## Régénérer l'image de partage
 
