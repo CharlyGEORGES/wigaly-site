@@ -1,62 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mentions légales – Wigaly</title>
+<title>Mentions légales | Wigaly</title>
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://wigaly.fr/mentions-legales.html">
 <meta name="theme-color" content="#1634D0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231634D0'/%3E%3Crect x='20' y='20' width='24' height='24' rx='4' fill='%23FFD166' transform='rotate(45 32 32)'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'sha256-qsNe1pmRKp04ZDD/qG4CehEFyU7+p1VHZkWbp8xxyY0='; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--ink:#10151F;--paper:#F4F2EC;--cobalt:#1634D0;--signal:#FFD166;--mute:#5A6170;--line:#D9D6CE;--bg:var(--paper);--fg:var(--ink);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#14171F;--ink:#F4F2EC;--mute:#A7ADBA;--line:#2A3040;--bg:var(--paper);--fg:var(--ink)}}
-:root[data-theme="dark"]{--paper:#14171F;--ink:#F4F2EC;--mute:#A7ADBA;--line:#2A3040;--bg:var(--paper);--fg:var(--ink)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.6}
-h1,h2{font-family:'Unbounded','Arial Black',sans-serif;font-weight:700;letter-spacing:-0.02em;margin:0}
-h1{font-size:clamp(28px,4vw,44px);margin-bottom:12px}
-h2{font-size:20px;margin:40px 0 10px}
-a{color:var(--cobalt)}
+@font-face{font-family:"Unbounded";src:url("fonts/unbounded.woff2") format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url("fonts/instrument-sans.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+:root{
+  --paper:#F3F4F8; --ink:#0E1322; --mute:#555C70; --line:#D4D8E3;
+  --cobalt:#1634D0; --night:#071250; --signal:#FFD166; --accent:#1634D0; --focus:#1634D0;
+  --display:"Unbounded","Arial Black","Segoe UI",system-ui,sans-serif;
+  --text:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --gut:clamp(20px,4vw,48px);
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0C101C;--ink:#EEF0F6;--mute:#A4ACC2;--line:#262D44;--accent:#93A5FF;--focus:#FFD166;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#0C101C;--ink:#EEF0F6;--mute:#A4ACC2;--line:#262D44;--accent:#93A5FF;--focus:#FFD166;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--text);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--cobalt)}
+h1,h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+a{color:var(--accent);text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.oc{--focus:#FFD166}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
 .nav{background:var(--cobalt);color:#fff}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:22px;text-decoration:none;color:#fff;display:flex;align-items:center;gap:10px}
-.logo i{width:12px;height:12px;background:var(--signal);display:inline-block;border-radius:2px;transform:rotate(45deg)}
-.nav a.back{color:#fff;font-weight:600;text-decoration:none;font-size:15px}
-.wrap{max-width:860px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-main{padding:clamp(48px,7vw,96px) 0}
-p{margin:0 0 12px}
-.mute{color:var(--mute);font-size:15px}
-footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-size:14px}
+.nav>.wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:700 22px/1 var(--display);letter-spacing:-.02em;text-decoration:none;color:#fff}
+.logo i{width:12px;height:12px;border-radius:2px;background:var(--signal);transform:rotate(45deg);flex:none}
+.nav .logo{view-transition-name:logo}
+.back{display:inline-flex;align-items:center;min-height:44px;color:#fff;font-weight:600;font-size:15px;text-decoration:none}
+.back:hover{text-decoration:underline}
+main{flex:1}
+.legal{max-width:900px;padding-block:clamp(48px,7vw,96px)}
+.legal h1{font-size:clamp(28px,4vw,46px)}
+.legal .date{margin-top:14px;font-size:15px;color:var(--mute)}
+.legal section{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 40px;padding-block:28px;border-top:1px solid var(--line)}
+.legal section:first-of-type{margin-top:40px}
+.legal h2{font-size:17px;line-height:1.3;padding-top:3px}
+.legal p+p{margin-top:10px}
+.legal dl{margin:0;display:grid;gap:6px}
+.legal dl div{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:12px}
+.legal dt{color:var(--mute)}
+.legal dd{margin:0;font-variant-numeric:tabular-nums}
+@media (max-width:720px){.legal section{grid-template-columns:minmax(0,1fr)}.legal dl div{grid-template-columns:minmax(0,1fr);gap:0}}
+.foot{background:var(--night);color:#fff;font-size:14.5px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px}
+.foot a{color:#fff}
+/* 404 */
+.lost{flex:1;display:grid;place-items:center;background:var(--cobalt);color:#fff;text-align:center}
+.lost .wrap{display:grid;justify-items:center;gap:22px;padding-block:clamp(48px,10vh,120px)}
+.lost svg{width:min(100%,420px);height:auto}
+.lost svg text{font-family:var(--display)}
+.lost h1{font-size:clamp(26px,4.4vw,48px);max-width:18ch}
+.lost p{max-width:46ch;color:rgba(255,255,255,.86)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--signal);color:#0E1322;font:600 16px/1 var(--text);text-decoration:none}
+.press{animation:press 2.6s cubic-bezier(.6,0,.4,1) infinite}
+.squash{transform-origin:210px 150px;animation:squash 2.6s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes press{0%,55%,100%{transform:translateY(0)}70%,82%{transform:translateY(26px)}}
+@keyframes squash{0%,55%,100%{transform:scaleY(1)}70%,82%{transform:scaleY(.36)}}
+@view-transition{navigation:auto}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
-<header class="nav"><div class="wrap"><a class="logo" href="/"><i></i>wigaly</a><a class="back" href="/">Retour au site</a></div></header>
+<header class="nav oc"><div class="wrap"><a class="logo" href="./" aria-label="Wigaly, accueil"><i></i>wigaly</a><a class="back" href="./">Retour au site</a></div></header>
 <main>
-<div class="wrap">
-<h1>Mentions légales</h1>
-<p class="mute">Dernière mise à jour : novembre 2026</p>
+<div class="wrap legal">
+  <h1>Mentions légales</h1>
+  <p class="date">Dernière mise à jour&nbsp;: novembre 2026</p>
 
-<h2>Éditeur du site</h2>
-<p>Wigaly, société par actions simplifiée (SAS) au capital de 200 €.<br>Siège social : 16 rue le Primatice, 77300 Fontainebleau, France.<br>Immatriculée au Registre du commerce et des sociétés de Melun sous le numéro 131 445 165 (SIRET 131 445 165 00015).<br>Numéro de TVA intracommunautaire : FR49 131 445 165.<br>Directeur de la publication : Charly Georges, président.<br>Contact : via le <a href="/#contact">formulaire du site</a>.</p>
+  <section>
+    <h2>Éditeur du site</h2>
+    <dl>
+      <div><dt>Société</dt><dd>Wigaly, société par actions simplifiée au capital de 200&nbsp;€</dd></div>
+      <div><dt>Siège social</dt><dd>16 rue le Primatice, 77300 Fontainebleau, France</dd></div>
+      <div><dt>Immatriculation</dt><dd>RCS Melun 131&nbsp;445&nbsp;165</dd></div>
+      <div><dt>SIRET</dt><dd>131&nbsp;445&nbsp;165&nbsp;00015</dd></div>
+      <div><dt>TVA</dt><dd>FR49&nbsp;131&nbsp;445&nbsp;165</dd></div>
+      <div><dt>Publication</dt><dd>Charly Georges, président, directeur de la publication</dd></div>
+      <div><dt>Contact</dt><dd>Par le <a href="./#contact">formulaire du site</a></dd></div>
+    </dl>
+  </section>
 
-<h2>Hébergement</h2>
-<p>Le site est hébergé par GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (service GitHub Pages).</p>
+  <section>
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé par GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis, avec le service GitHub Pages.</p>
+  </section>
 
-<h2>Propriété intellectuelle</h2>
-<p>L'ensemble du site (textes, animations, logo, code) est la propriété de Wigaly, sauf mention contraire. Toute reproduction, même partielle, sans autorisation écrite préalable est interdite. Les marques citées (Microsoft, Power Platform, Power Apps, Power Automate, Power BI, Dataverse, Copilot Studio, Azure, GitHub) appartiennent à leurs propriétaires respectifs.</p>
+  <section>
+    <h2>Propriété intellectuelle</h2>
+    <div>
+      <p>L’ensemble du site (textes, animations, logo, code) est la propriété de Wigaly, sauf mention contraire. Toute reproduction, même partielle, sans autorisation écrite préalable est interdite.</p>
+      <p>Les marques citées (Microsoft, Power Platform, Power Apps, Power Automate, Power BI, Dataverse, Copilot Studio, Teams, Excel, Azure, GitHub, Airbnb) appartiennent à leurs propriétaires respectifs. Les polices Unbounded et Instrument Sans sont utilisées sous licence SIL Open Font License.</p>
+    </div>
+  </section>
 
-<h2>Données personnelles</h2>
-<p>Responsable du traitement : Wigaly.<br>Données collectées : celles que vous saisissez dans le formulaire de contact (nom, adresse e-mail professionnelle, description de votre besoin).<br>Finalité : répondre à votre demande et, le cas échéant, préparer un rendez-vous. Base légale : votre consentement et les mesures précontractuelles.<br>Durée de conservation : 12 mois après le dernier échange, sauf relation contractuelle.<br>Destinataires : l'équipe Wigaly uniquement. Aucune cession, aucune revente.<br>Vos droits : accès, rectification, effacement, limitation, opposition et portabilité, conformément au RGPD et à la loi Informatique et Libertés. Pour les exercer, écrivez-nous via le formulaire du site. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+  <section>
+    <h2>Données personnelles</h2>
+    <div>
+      <p>Responsable du traitement&nbsp;: Wigaly. Les seules données collectées sont celles que vous saisissez dans le formulaire de contact&nbsp;: nom, adresse e-mail professionnelle, description de votre besoin.</p>
+      <p>Elles servent à répondre à votre demande et, le cas échéant, à préparer un rendez-vous. Base légale&nbsp;: votre consentement et les mesures précontractuelles. Elles sont conservées 12 mois après le dernier échange, sauf relation contractuelle, et ne sont lues que par l’équipe Wigaly. Aucune cession, aucune revente.</p>
+      <p>Vous disposez des droits d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité prévus par le RGPD et la loi Informatique et Libertés. Pour les exercer, écrivez-nous par le formulaire du site. Vous pouvez aussi saisir la CNIL sur <a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>.</p>
+    </div>
+  </section>
 
-<h2>Cookies</h2>
-<p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience. Les polices de caractères sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google lors du chargement de la page.</p>
+  <section>
+    <h2>Cookies et traceurs</h2>
+    <p>Ce site ne dépose aucun cookie et n’utilise aucun outil de mesure d’audience. Les polices et tous les fichiers sont servis depuis wigaly.fr&nbsp;: l’affichage du site ne déclenche aucune requête vers un tiers. La page d’accueil mémorise seulement, le temps de votre visite et dans votre navigateur, que l’animation d’ouverture a déjà été jouée.</p>
+  </section>
 
-<h2>Crédits</h2>
-<p>Conception et réalisation : Wigaly.</p>
+  <section>
+    <h2>Démonstrations</h2>
+    <p>La machine et les quatre démonstrations de la page d’accueil fonctionnent entièrement dans votre navigateur. Ce que vous y saisissez n’est ni envoyé ni conservé. Les maisons, réseaux et titres de musique qui y figurent sont des exemples inventés.</p>
+  </section>
 </div>
 </main>
-<footer><div class="wrap">SAS Wigaly, Fontainebleau. <a href="/">wigaly.fr</a></div></footer>
+<footer class="foot oc"><div class="wrap"><span>Wigaly SAS, Fontainebleau</span><a href="./">wigaly.fr</a></div></footer>
 </body>
 </html>

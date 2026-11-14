@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page introuvable | Wigaly</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1634D0">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'sha256-Al7XpQ85w3aN5gugeE0fe46cXlcAYlvxyZWAtU4l7hs='; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Unbounded";src:url("/fonts/unbounded.woff2") format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url("/fonts/instrument-sans.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+:root{
+  --paper:#F3F4F8; --ink:#0E1322; --mute:#555C70; --line:#D4D8E3;
+  --cobalt:#1634D0; --night:#071250; --signal:#FFD166; --accent:#1634D0; --focus:#1634D0;
+  --display:"Unbounded","Arial Black","Segoe UI",system-ui,sans-serif;
+  --text:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --gut:clamp(20px,4vw,48px);
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0C101C;--ink:#EEF0F6;--mute:#A4ACC2;--line:#262D44;--accent:#93A5FF;--focus:#FFD166;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#0C101C;--ink:#EEF0F6;--mute:#A4ACC2;--line:#262D44;--accent:#93A5FF;--focus:#FFD166;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--text);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--cobalt)}
+h1,h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+a{color:var(--accent);text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.oc{--focus:#FFD166}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.nav{background:var(--cobalt);color:#fff}
+.nav>.wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:700 22px/1 var(--display);letter-spacing:-.02em;text-decoration:none;color:#fff}
+.logo i{width:12px;height:12px;border-radius:2px;background:var(--signal);transform:rotate(45deg);flex:none}
+.nav .logo{view-transition-name:logo}
+.back{display:inline-flex;align-items:center;min-height:44px;color:#fff;font-weight:600;font-size:15px;text-decoration:none}
+.back:hover{text-decoration:underline}
+main{flex:1}
+.legal{max-width:900px;padding-block:clamp(48px,7vw,96px)}
+.legal h1{font-size:clamp(28px,4vw,46px)}
+.legal .date{margin-top:14px;font-size:15px;color:var(--mute)}
+.legal section{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 40px;padding-block:28px;border-top:1px solid var(--line)}
+.legal section:first-of-type{margin-top:40px}
+.legal h2{font-size:17px;line-height:1.3;padding-top:3px}
+.legal p+p{margin-top:10px}
+.legal dl{margin:0;display:grid;gap:6px}
+.legal dl div{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:12px}
+.legal dt{color:var(--mute)}
+.legal dd{margin:0;font-variant-numeric:tabular-nums}
+@media (max-width:720px){.legal section{grid-template-columns:minmax(0,1fr)}.legal dl div{grid-template-columns:minmax(0,1fr);gap:0}}
+.foot{background:var(--night);color:#fff;font-size:14.5px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px}
+.foot a{color:#fff}
+/* 404 */
+.lost{flex:1;display:grid;place-items:center;background:var(--cobalt);color:#fff;text-align:center}
+.lost .wrap{display:grid;justify-items:center;gap:22px;padding-block:clamp(48px,10vh,120px)}
+.lost svg{width:min(100%,420px);height:auto}
+.lost svg text{font-family:var(--display)}
+.lost h1{font-size:clamp(26px,4.4vw,48px);max-width:18ch}
+.lost p{max-width:46ch;color:rgba(255,255,255,.86)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--signal);color:#0E1322;font:600 16px/1 var(--text);text-decoration:none}
+.press{animation:press 2.6s cubic-bezier(.6,0,.4,1) infinite}
+.squash{transform-origin:210px 150px;animation:squash 2.6s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes press{0%,55%,100%{transform:translateY(0)}70%,82%{transform:translateY(26px)}}
+@keyframes squash{0%,55%,100%{transform:scaleY(1)}70%,82%{transform:scaleY(.36)}}
+@view-transition{navigation:auto}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+<header class="nav oc"><div class="wrap"><a class="logo" href="/" aria-label="Wigaly, accueil"><i></i>wigaly</a><a class="back" href="/">Retour au site</a></div></header>
+<main class="lost oc">
+  <div class="wrap">
+    <svg viewBox="0 0 420 220" role="img" aria-label="Une presse écrase une étiquette marquée 404.">
+      <rect x="60" y="20" width="300" height="180" rx="18" fill="#fff"/>
+      <rect x="60" y="120" width="300" height="56" fill="#071250"/>
+      <rect x="203" y="20" width="14" height="100" fill="#DDE3F0"/>
+      <g class="press"><rect x="203" y="60" width="14" height="56" rx="3" fill="#fff" stroke="#DDE3F0" stroke-width="2"/><rect x="170" y="106" width="80" height="14" rx="4" fill="#FFD166"/></g>
+      <g class="squash"><rect x="150" y="124" width="120" height="44" rx="9" fill="#fff"/><text x="210" y="154" text-anchor="middle" font-size="22" font-weight="700" fill="#1634D0">404</text></g>
+      <rect x="0" y="176" width="420" height="12" rx="6" fill="#fff" fill-opacity=".16"/>
+    </svg>
+    <h1>Cette page est restée coincée sous la presse</h1>
+    <p>L’adresse demandée n’existe pas, ou plus. Le reste de la machine tourne très bien.</p>
+    <a class="btn" href="/">Revenir à l’accueil</a>
+  </div>
+</main>
+</body>
+</html>
