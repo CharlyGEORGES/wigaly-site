@@ -7,6 +7,7 @@ La branche `main` contient le site tel que GitHub Pages le sert sur https://wiga
 | Chemin | Rôle |
 | --- | --- |
 | `src/index.html`, `src/site.css`, `src/site.js` | Page d'accueil : gabarit, styles, script |
+| `src/reply.js` | Les règles de la machine : ce que devient ce que le visiteur pose sur le tapis |
 | `src/mentions.html`, `src/404.html`, `src/page.css` | Mentions légales et page 404 |
 | `src/fonts/` | Polices réduites aux caractères latins, avec leur licence |
 | `src/qr.json` | Code QR affiché dans la démo du boîtier |
@@ -24,12 +25,27 @@ Python 3 suffit, sans paquet à installer. Le script incorpore les styles et le 
 
 ## Vérifier
 
+    node tests/reply.test.js
     python3 -m http.server 8765 --directory out
     npm install playwright
     node tests/inter.js
     node tests/more.js
+    node tests/drop.js
 
-`inter.js` joue les interactions (machine, journal, démos, formulaire). `more.js` couvre les autres largeurs d'écran, le mouvement réduit, les mentions légales et la page 404. Les deux doivent se terminer par `LOGS: []` : aucune erreur de console, aucune ressource bloquée par la CSP.
+`reply.test.js` vérifie les règles de la machine sans navigateur. Les trois autres tournent dans un vrai navigateur : `inter.js` joue les interactions (machine, journal, démos, formulaire), `more.js` couvre les autres largeurs d'écran, le mouvement réduit, les mentions légales et la page 404, `drop.js` pose des éléments sur le tapis et lit les réponses. Tous trois doivent se terminer par `LOGS: []` : aucune erreur de console, aucune ressource bloquée par la CSP.
+
+## Les règles de la machine
+
+`src/reply.js` décide ce que devient un élément posé sur le tapis. Aucune IA, aucun appel réseau : des règles, dans cet ordre.
+
+1. Les sujets qu'on laisse aux humains (deuil, santé, personnes, politique) reçoivent une réponse sobre, jamais une blague.
+2. Les formes reconnaissables : calcul, date, heure, montant, adresse, lien, nom de fichier.
+3. La conversation et les clins d'œil maison.
+4. Les familles de travail (facture, réunion, devis, ticket…), avec une précision reprise du texte quand il y en a une : un nom, un mois, un jour, un numéro.
+5. Le quotidien de bureau, les questions, les verbes.
+6. À défaut, une tournure invariable construite avec les mots reçus.
+
+Pour ajouter une famille : une ligne dans la table `FAM`, avec au moins une réponse de 23 caractères au plus pour les petits écrans. Le test le vérifie.
 
 ## Raccorder le formulaire de contact
 

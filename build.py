@@ -85,7 +85,8 @@ def data_fonts(css):
 ICONS = '<link rel="icon" href="%sfavicon.ico" sizes="32x32">\n<link rel="icon" href="%sfavicon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="%sapple-touch-icon.png">\n'
 
 def build_index(preview=False):
-    css, js = rd('site.css'), rd('site.js')
+    css, js = rd('site.css'), rd('site.js').replace('/*{{REPLY}}*/', rd('reply.js'))
+    assert '{{REPLY}}' not in js and 'var reply=' in js
     t = rd('index.html')
     d = dict(GEO)
     d.update({'{{CSS}}': data_fonts(css) if preview else css, '{{JS}}': lite(js), '{{BOOT}}': BOOT, '{{ENDPOINT}}': ENDPOINT,

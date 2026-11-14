@@ -249,6 +249,7 @@ var M=(function(){
 
   return {
     on:function(f){subs.push(f);},
+    room:function(){return small?23:25;},
     inject:function(a,b){
       var best=null,lim=vb.x+8;
       chips.forEach(function(c){if(c.state==='in'&&!c.user&&c.x+c.w/2<206&&c.x-c.w/2>lim&&(!best||c.x>best.x))best=c;});
@@ -258,35 +259,24 @@ var M=(function(){
   };
 })();
 
+/*{{REPLY}}*/
+
 /* ---------- À vous : poser quelque chose sur le tapis ---------- */
 (function(){
   var form=$('drop'),inp=$('drop-in'),out=$('drop-out');if(!form)return;
-  var RULES=[
-    [/wigaly/i,'Déjà au bon endroit'],
-    [/\b(ia|intelligence artificielle|chatgpt|copilot|llm|gpt)\b/i,'Placée où elle sert'],
-    [/factur|devis|bon de commande|note de frais|ticket de caisse/i,'Écriture compta prête'],
-    [/r[ée]union|meeting|visio|comit[ée]|point hebdo|atelier/i,'Compte rendu, 3 lignes'],
-    [/excel|xls|tableur|csv|onglet/i,'Un tableau de bord'],
-    [/mail|courriel|message|sms/i,'Réponse à valider'],
-    [/pdf|contrat|document|fichier|word|dossier|courrier|scan/i,'Champs extraits'],
-    [/ticket|bug|incident|panne|support/i,'Workflow lancé'],
-    [/post-?it|pense-b[êe]te|rappel|to-?do/i,'Rappel Teams'],
-    [/urgent|asap|\bvite\b|\bhier\b/i,'Priorité vérifiée'],
-    [/\bcv\b|candidat|recrut/i,'Profil résumé'],
-    [/caf[ée]|pizza|chat|chien|vacances|week-?end/i,'Hors périmètre, hélas']
-  ];
-  function becomes(s){for(var i=0;i<RULES.length;i++)if(RULES[i][0].test(s))return RULES[i][1];return 'Classé, tracé, rangé';}
+  function say(a,verbe,b){return quote(a)+verbe+quote(b)+(/[.!?…]$/.test(b)?'':'.');}
   function send(v){
     v=v.replace(/\s+/g,' ').trim();if(!v){inp.focus();return;}
-    if(v.length>24)v=v.slice(0,23)+'…';
-    var b=becomes(v);inp.value='';
-    if(reduce||!M){out.textContent=quote(v)+' devient '+quote(b)+'.';return;}
-    out.textContent=quote(v)+' est sur le tapis, la presse arrive.';
-    M.inject(v,b);
+    /* la réponse se calcule sur le texte entier, l'étiquette du tapis n'en garde que le début */
+    var b=reply(v,M?M.room():25),a=reply.clip(v,24);
+    inp.value='';
+    if(reduce||!M){out.textContent=say(a,' devient ',b);return;}
+    out.textContent=quote(a)+' est sur le tapis, la presse arrive.';
+    M.inject(a,b);
   }
   form.addEventListener('submit',function(e){e.preventDefault();send(inp.value);});
   all('[data-try]',form).forEach(function(b){b.addEventListener('click',function(){send(b.getAttribute('data-try'));});});
-  if(M)M.on(function(ev){if(ev.user)out.textContent=quote(ev.a)+' est devenu '+quote(ev.b)+'.';});
+  if(M)M.on(function(ev){if(ev.user)out.textContent=say(ev.a,' est devenu ',ev.b);});
 })();
 
 /* ---------- Instruments : ce que la page promet, mesuré sur la page ---------- */
